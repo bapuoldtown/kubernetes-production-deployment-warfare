@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: payflow
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/bapuoldtown/kubernetes-production-deployment-warfare.git
+    targetRevision: main
+    path: missions/001-argocd-installation/manifests
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: warfare-argocd-001
